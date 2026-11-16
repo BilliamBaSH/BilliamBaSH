@@ -1,0 +1,20 @@
+# Badges only I can judge. Add one [[award]] per time it happened.
+# badge is the word on the shelf: DUD, LOOT, AGAIN or DEBRIEF.
+# date is optional; with one, it can show up under Latest.
+
+[[award]]
+badge = "DUD"
+link = "https://github.com/sam247/openredaction/pull/168"
+note = "Package versions aren't emails anymore."
+date = "2026-11-12"
+
+[[award]]
+badge = "LOOT"
+link = "https://github.com/clotr-app/BilliBaSHing"
+note = "684 made-up examples for testing detectors."
+date = "2026-10-18"
+
+[[award]]
+badge = "AGAIN"
+link = "https://github.com/sam247/openredaction"
+note = "Sam asked me to keep contributing."
