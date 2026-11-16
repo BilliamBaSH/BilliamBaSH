@@ -1,7 +1,3 @@
-### BilliamBaSH
-
-Navy veteran, comp sci student. Jack of all trades, master of none. Yet.
-
 <a href="https://github.com/clotr-app/clotr">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="clotr-card-dark.svg">
