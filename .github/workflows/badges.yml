@@ -1,0 +1,43 @@
+# Once a day: recount the trophy shelf. If anything changed, open a PR for me to merge.
+name: Badges
+
+on:
+  schedule:
+    - cron: "0 11 * * *"   # about 6 AM Eastern
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency: badges
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install fonttools==4.63.0
+      - run: python badges/render.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Open a PR if the shelf changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c badges/update
+          git commit -am "Update the trophy shelf"
+          git push -f origin badges/update
+          if ! gh pr view badges/update --json state -q .state 2>/dev/null | grep -q OPEN; then
+            gh pr create --head badges/update --title "Update the trophy shelf" \
+              --body "The daily count changed. Look at the two SVGs, then merge if they're right."
+          fi

@@ -1,0 +1,69 @@
+# What the shelf counts and how it looks. render.py reads this.
+
+user = "BilliamBaSH"
+tagline = "What I fix and send back to other open source privacy and security tools."
+
+# PRs to these don't count: my own org, and lists I asked to add Clotr to.
+skip_orgs = ["clotr-app"]
+skip_repos = ["punkpeye/awesome-mcp-servers", "pluja/awesome-privacy", "ikaijua/Awesome-AITools"]
+
+# Merges needed for each level.
+levels = [1, 2, 5, 10, 20, 35, 50, 75, 100]
+
+# How many lines the Latest list shows.
+latest = 3
+
+[names]
+"keepassxreboot/keepassxc" = "KeePassXC"
+"sam247/openredaction" = "OpenRedaction"
+"Erik755/shadow-ai-dlp" = "shadow-ai-dlp"
+
+# The shelf, in order. Counted ones: 1ST, NORMIE, ZOOM, CLEAR.
+# The rest come from achievements.toml.
+[[badge]]
+word = "1ST"
+name = "First blood"
+rule = "First merge in a new repo"
+colour = "gold"
+
+[[badge]]
+word = "DUD"
+name = "Trap disarmed"
+rule = "Fixed a false alarm"
+colour = "green"
+
+[[badge]]
+word = "LOOT"
+name = "Loot shared"
+rule = "Made something others use"
+colour = "lavender"
+
+[[badge]]
+word = "AGAIN"
+name = "Invited back"
+rule = "A maintainer asked for more"
+colour = "orange"
+
+[[badge]]
+word = "NORMIE"
+name = "Regular"
+rule = "3 merges in one repo"
+colour = "lavender"
+
+[[badge]]
+word = "DEBRIEF"
+name = "Locked door opened"
+rule = "A report goes public after the fix"
+colour = "gold"
+
+[[badge]]
+word = "ZOOM"
+name = "Speedrun"
+rule = "Merged within 24 hours"
+colour = "orange"
+
+[[badge]]
+word = "CLEAR"
+name = "Floor cleared"
+rule = "No quests left open"
+colour = "green"
